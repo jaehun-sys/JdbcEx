@@ -1,12 +1,13 @@
-package jdbcex;
+package jdbcex.book;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class AuthorInsertTest {
+public class BookUpdate {
 	public static void main(String[] args) {
+		//boolean success = false;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		//ResultSet rs = null;
@@ -21,19 +22,27 @@ public class AuthorInsertTest {
 			
 		// 3. SQL문 준비 / 바인딩 / 실행 
 			StringBuilder sql = new StringBuilder();
-			sql.append("INSERT INTO AUTHOR(AUTHOR_ID, AUTHOR_NAME, AUTHOR_DESC) ");
-			sql.append("VALUES(SEQ_AUTHOR_ID.NEXTVAL, ?, ?) ");
+			sql.append("UPDATE BOOK " );
+			sql.append("SET TITLE = ?, ");
+			sql.append("PUBS = ?, ");
+			sql.append("PUB_DATE = ? ");
+			sql.append("WHERE BOOK_ID = ? ");
 			
 			pstmt = conn.prepareStatement(sql.toString());
 			
 			int index = 1;
-			pstmt.setString(index++, "작가가가가");
-			pstmt.setString(index++, "작가정보보보");
+			pstmt.setString(index++, "만화국지");
+			pstmt.setString(index++, "요코하마 미쓰떼루");
+			pstmt.setString(index++, "1988-11-20");
+			pstmt.setString(index++, "4");
 			
 			//실행 결과 리턴. sql 문장 실행 후, 변경된 row 수 int 타입으로 리턴
 			//int r = pstmt.executeUpdate();
 			//pstmt.executeQuery() : select
 			//pstmt.executeUpdate() : insert, update, delete
+			
+			pstmt.executeUpdate();
+		// 4. 결과처리
 			
 			
 		}catch(SQLException e){
@@ -41,6 +50,7 @@ public class AuthorInsertTest {
 		}catch(ClassNotFoundException e) {
 			System.err.println("JDBC Connector Driver 에러: " + e.getMessage());
 		}finally{
+			//자원 정리
 			try {
 				if (conn != null)
 					conn.close();

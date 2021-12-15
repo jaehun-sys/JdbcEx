@@ -1,4 +1,4 @@
-package jdbcex;
+package jdbcex.author;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,8 +23,8 @@ public interface AuthorUpdateTest {
 		// 3. SQL문 준비 / 바인딩 / 실행 
 			StringBuilder sql = new StringBuilder();
 			sql.append("UPDATE AUTHOR " );
-			sql.append("SET AUTHOR_NAME = ? ");
-			sql.append("AUTHOR_DESC = ? ");
+			sql.append("SET AUTHOR_NAME = ?, ");
+			sql.append("AUTHOR_DESC = ?, ");
 			sql.append("WHERE AUTHOR_ID = ? ");
 			
 			pstmt = conn.prepareStatement(sql.toString());

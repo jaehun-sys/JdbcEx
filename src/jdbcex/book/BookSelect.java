@@ -1,4 +1,4 @@
-package jdbcex;
+package jdbcex.book;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AuthorSelectTest {
+public class BookSelect {
 	public static void main(String[] args) {
 		// 0. import java.sql.*;
 		Connection conn = null; 
@@ -22,16 +22,19 @@ public class AuthorSelectTest {
 			conn = DriverManager.getConnection(url, "webdb", "webdb12");
 			
 		// 3. SQL문 준비 / 바인딩 / 실행 
-			String sql = "select * from author";
+			String sql = "SELECT * FROM BOOK ";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 		// 4.결과처리
 			while(rs.next()) {
-				int authorId = rs.getInt("author_id");
-				String authorName = rs.getString("author_name");
-				String authorDesc = rs.getString("author_desc");
-				System.out.println(authorId + "\t" + authorName + "\t" + authorDesc + "\t");
+				int BOOK_ID = rs.getInt("BOOK_ID");
+				String TITLE = rs.getString("TITLE");
+				String PUBS = rs.getString("PUBS");
+				String PUB_DATE = rs.getString("PUB_DATE");
+				String AUTHOR_ID = rs.getString("AUTHOR_ID");
+				System.out.println(BOOK_ID + "\t" + TITLE + "\t" + PUBS + "\t"
+									+ PUB_DATE + "\t" + AUTHOR_ID);
 			}
 		} catch (ClassNotFoundException e) { 
 			System.out.println("error: 드라이버 로딩 실패 - " + e);

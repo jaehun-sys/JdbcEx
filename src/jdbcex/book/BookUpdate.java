@@ -31,8 +31,8 @@ public class BookUpdate {
 			pstmt = conn.prepareStatement(sql.toString());
 			
 			int index = 1;
-			pstmt.setString(index++, "만화국지");
-			pstmt.setString(index++, "요코하마 미쓰떼루");
+			pstmt.setString(index++, "삼국지");
+			pstmt.setString(index++, "몰라요");
 			pstmt.setString(index++, "1988-11-20");
 			pstmt.setString(index++, "4");
 			

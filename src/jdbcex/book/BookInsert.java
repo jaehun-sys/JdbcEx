@@ -21,8 +21,8 @@ public class BookInsert {
 			
 		// 3. SQL문 준비 / 바인딩 / 실행 
 			StringBuilder sql = new StringBuilder();
-			sql.append("INSERT INTO BOOK(BOOK_ID, TITLE, PUBS, PUB_DATE) ");
-			sql.append("VALUES(SEQ_BOOK_ID.NEXTVAL, ?, ?, ?) ");
+			sql.append("INSERT INTO BOOK(BOOK_ID, TITLE, PUBS, PUB_DATE, AUTHOR_ID) ");
+			sql.append("VALUES(SEQ_BOOK_ID.NEXTVAL, ?, ?, ?, ?) ");
 			
 			pstmt = conn.prepareStatement(sql.toString());
 			
@@ -30,7 +30,7 @@ public class BookInsert {
 			pstmt.setString(index++, "나미야 잡화점의 기적");
 			pstmt.setString(index++, "현대문학");
 			pstmt.setString(index++, "2012-12-19");
-			//pstmt.setString(index++, "7");
+			pstmt.setString(index++, "6");
 			
 			//실행 결과 리턴. sql 문장 실행 후, 변경된 row 수 int 타입으로 리턴
 			//int r = pstmt.executeUpdate();

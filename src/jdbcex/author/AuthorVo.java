@@ -23,7 +23,11 @@ public class AuthorVo {
 		this.author_desc = author_desc;
 	}
 	
-	public String to_String() {
-        return "AuthorVo [author_id=" + author_id + ", author_name=" + author_name + ", author_desc=" + author_desc + "]";
-    }
+	@Override
+	public String toString() {
+		return "AuthorVo [author_id=" + author_id + ", author_name=" + author_name + ", author_desc=" + author_desc
+				+ "]";
+	}
+	
+	
 }

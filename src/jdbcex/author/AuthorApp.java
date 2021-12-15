@@ -11,8 +11,8 @@ public class AuthorApp {
 //		ArrayList<AuthorVo> list = dao.select();
 //		for (AuthorVo vo : list) { System.out.println(vo.to_String()); }
 		
-		
 		AuthorVo vo = new AuthorVo();
+		
 		// insert()
 		System.out.println("--insert--"); 
 		vo.setAuthor_name("작가2");

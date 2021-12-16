@@ -46,7 +46,7 @@ public class BookManagerApp {
 					
 					System.out.print("> ");								//inputAuthor!!!!
 					int inputAuthor = sc.nextInt();
-					if(inputAuthor < 1 || inputAuthor > list2.size()+1) {			//오류
+					if(inputAuthor < 1 || inputAuthor > list2.size()+2) {			//오류
 						System.out.println("잘못된 입력입니다");
 						break;
 					}else if(inputAuthor == list2.size()+1) {						//저자 추가

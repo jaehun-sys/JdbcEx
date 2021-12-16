@@ -103,10 +103,13 @@ public class BookManagerDaoImpl implements BookManagerDao{
 			
 		// 3. SQL문 준비 / 바인딩 / 실행 
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT	B.TITLE								AS title	 ");
-//			sql.append("		B.PUBS								AS pubs		, ");
-//			sql.append("		TO_CHAR(B.PUB_DATE, 'YYYY-MM-DD')	AS pub_date	, ");
-//			sql.append("		A.AUTHOR_NAME						AS author_name ");
+			sql.append("SELECT	B.TITLE								AS title    , ");
+			sql.append("		B.BOOK_ID							AS book_id	, ");
+			sql.append("		B.PUBS								AS pubs		, ");
+			sql.append("		TO_CHAR(B.PUB_DATE, 'YYYY-MM-DD')	AS pub_date	, ");
+			sql.append("		A.AUTHOR_NAME						AS author_name, ");
+			sql.append("		A.AUTHOR_ID							AS author_id ");
+			
 			sql.append("FROM 	BOOK	B, ");
 			sql.append("		AUTHOR	A  ");
 			sql.append("WHERE 	B.AUTHOR_ID = A.AUTHOR_ID ");
@@ -128,14 +131,17 @@ public class BookManagerDaoImpl implements BookManagerDao{
 				
 				//조회된 내용을 vo 객체에 세팅
 				String title = rs.getString("title");
-//				String pubs = rs.getString("pubs");
-//				String pub_date = rs.getString("pub_date");
-//				String author_name = rs.getString("author_name");
+				int book_id = rs.getInt("book_id");
+				String pubs = rs.getString("pubs");
+				String pub_date = rs.getString("pub_date");
+				String author_name = rs.getString("author_name");
+				int author_id = rs.getInt("author_id");
 				vo.setTitle(title);
-//				vo.setPubs(pubs);
-//				vo.setPub_date(pub_date);
-//				vo.setAuthor_name(author_name);
-				
+				vo.setBook_id(book_id);
+				vo.setPubs(pubs);
+				vo.setPub_date(pub_date);
+				vo.setAuthor_name(author_name);
+				vo.setAuthor_id(author_id);
 				//세팅이 끝난 vo를 list에 담기
 				list.add(vo);
 				

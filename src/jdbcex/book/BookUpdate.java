@@ -32,7 +32,7 @@ public class BookUpdate {
 			
 			int index = 1;
 			pstmt.setString(index++, "삼국지");
-			pstmt.setString(index++, "몰라요");
+			pstmt.setString(index++, "몰라요2");
 			pstmt.setString(index++, "1988-11-20");
 			pstmt.setString(index++, "4");
 			

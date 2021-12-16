@@ -45,7 +45,7 @@ public class AuthorDaoImpl implements AuthorDao{
 				//세팅이 끝난 vo를 list에 담기
 				list.add(vo);
 				
-				System.out.println(author_id + "\t" + author_name + "\t" + author_desc + "\t");
+				//System.out.println(author_id + "\t" + author_name + "\t" + author_desc + "\t");
 			}
 		} catch (ClassNotFoundException e) { 
 			System.out.println("error: 드라이버 로딩 실패 - " + e);

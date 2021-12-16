@@ -149,7 +149,7 @@ public class BookDaoImpl implements BookDao{
 			sql.append("UPDATE 	BOOK " );
 			sql.append("SET 	TITLE = ?, ");
 			sql.append("		PUBS = ?, ");
-			sql.append("		PUB_DATE = ?, ");
+			sql.append("		PUB_DATE = ? ");
 			sql.append("WHERE BOOK_ID = ? ");
 			
 			pstmt = conn.prepareStatement(sql.toString());
